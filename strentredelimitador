@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+"""
+
+strentredelimitador 
+  Retornar uma string entre 2 delimitadores
+  
+Created on Mon Oct 29 09:03:03 2018
+
+@author: Sam Faraday
+
+
+Exemplo de Chamada
+
+import strentredelimitador as st
+
+s1=" ICMS: ICMS Muito alto   0,05 | Valor Payback:     12,58 | VPL: 2,3|"
+
+payback = st.strentredelimitador(s1,"Valor Payback:","|")
+print(payback.strip())
+
+icms = st.strentredelimitador(s1,"ICMS:","|")
+
+print(icms.strip())
+
+
+"""
+
+def strentredelimitador (minhastring, delimitador1, delimitador2):
+    
+    lenminhastring = minhastring.find(delimitador1) + len(delimitador1)
+    
+    minhasubstring = minhastring[lenminhastring:300]
+    
+    posdelimitador2 = minhasubstring.find(delimitador2)
+    
+    return minhasubstring[1:posdelimitador2]
